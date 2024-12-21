@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+.slick-dots {
+  display: none;
+}
+
+
+.slick-prev:before {
+  opacity: 1;
+}
+
+.slick-prev {
+  left: 15px;
+  z-index: 100;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 60px;
+  border: 1px solid #076BFF;
+  background-color: white;
+}
+
+.slick-prev:before {
+  /*font-size: 39px;*/
+  transform: rotate(180deg);
+  content: url("assets/images/left.png");
+  height: 20px;
+  width: 20px;
+  opacity: 1;
+  color: white;
+}
+
+.slick-next {
+  right: 12px;
+  /*background-color: #076BFF;*/
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 60px;
+  border: 1px solid #076BFF;
+  background-color: white;
+}
+
+.slick-next:before {
+  content: url("assets/images/right.png");
+  height: 20px;
+  width: 20px;
+  opacity: 1;
+  color: white;
+  /*font-size: 39px;*/
+}
+
+.ui-state-active .ui-icon, .ui-accordion-header-icon {
+  /*display: none;*/
+}
+
+.ui-icon, .ui-widget-content .ui-icon, .ui-state-hover .ui-icon {
+  background-image: url(assets/images/стрелка.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0;
+  position: absolute;
+  top: 30px;
+  right: 28px;
+}
+
+.ui-state-active .ui-icon, .ui-button:active .ui-icon {
+  background-image: url(assets/images/стрелка-вверх.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0;
+  position: absolute;
+  top: 30px;
+  right: 28px;
+}
+
+.hvr-radial-out {
+  background-color: #0b5ed7;
+}
+
+#search-button:hover {
+  background-color: rgba(145, 189, 255, 0.76);
+}
