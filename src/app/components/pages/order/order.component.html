@@ -1,1 +1,45 @@
-<p>order works!</p>
+<div class="text-center fs-2 fw-bold mb-4" id="make-order">Сделать заказ</div>
+<div class="position-relative row">
+  <form class="m-auto pb-5 col-12 col-lg-8 container-lg w-75 wow animate__bounceIn" id="form">
+    <!--        style="width: 636px"-->
+    <div class="form-row m-auto row col-12 mb-3">
+      <div class="form-group col-md-4">
+        <label class="mb-2">Имя</label>
+        <input type="text" class="form-control" id="inputName">
+      </div>
+      <div class="form-group col-md-4">
+        <label class="mb-2">Фамилия</label>
+        <input type="text" class="form-control" id="inputSurname">
+      </div>
+      <div class="form-group col-md-4">
+        <label class="mb-2">Телефон</label>
+        <input type="text" class="form-control" id="inputPhone">
+      </div>
+    </div>
+    <div class="form-row m-auto row col-12 row mb-3">
+      <div class="form-group col-md-6">
+        <label class="mb-2">Страна</label>
+        <input type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="mb-2">Индекс</label>
+        <input type="text" class="form-control" id="inputIndex">
+      </div>
+    </div>
+    <div class="form-group m-auto row col-12 mb-4">
+      <label class="mb-2">Адрес</label>
+      <input type="text" class="form-control" id="inputAddress">
+    </div>
+    <div class="form-group m-auto row col-md-4 col-12">
+      <button type="button" class="btn btn-primary m-auto row col-8 hvr-radial-out" id="order"
+      >Отправить
+        <!--                    style="width: 156px"-->
+      </button>
+
+    </div>
+  </form>
+  <div id="popup" class="border bg-success text-white p-2 text-center m-auto" style="width: 400px; height: 150px">
+    <p>Спасибо за заказ! Мы свяжемся с вами в ближайшее время!</p>
+    <button id="button-popup" type="button" class="btn btn-primary hvr-radial-out">Готово</button>
+  </div>
+</div>

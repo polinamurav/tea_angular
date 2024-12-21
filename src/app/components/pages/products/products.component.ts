@@ -32,4 +32,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.subscription?.unsubscribe();
   }
 
+  goToProduct(productId: number) {
+    this.router.navigate(['/products', productId]);
+  }
 }
