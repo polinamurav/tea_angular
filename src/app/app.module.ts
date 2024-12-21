@@ -10,6 +10,10 @@ import { HeaderComponent } from './components/common/header/header.component';
 import { FooterComponent } from './components/common/footer/footer.component';
 import {RouterLinkActive, RouterLinkWithHref, RouterOutlet} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {ProductService} from "./services/product.service";
+
+let AuthInterceptor;
 
 @NgModule({
   declarations: [
@@ -19,16 +23,17 @@ import { AppRoutingModule } from './app-routing.module';
     ProductsComponent,
     OrderComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     RouterOutlet,
     AppRoutingModule,
+    HttpClientModule,
     RouterLinkWithHref,
     RouterLinkActive
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
