@@ -1,1 +1,58 @@
-<p>main works!</p>
+<div class="container">
+  <div class="carousel-slide mb-5 wow animate__backInRight">
+    <div>
+      <img src="assets/images/slide1.png" alt="1" class="w-100 m-auto">
+    </div>
+  </div>
+  <div class="text-center fs-2 fw-bold pt-4 mb-4">Ответы на часто задаваемые вопросы</div>
+  <div id="accordion" class="pt-4 pb-5 m-auto col-12 col-lg-10 container-lg">
+    <h3 class="accordion-h3 p-4 rounded-2 mb-3 bg-primary bg-gradient border-0 text-white">Собираете ли вы
+      подарочные боксы?</h3>
+    <div class="pb-3 pt-3 pl-4 rounded-2 border-0">
+      <p>
+        Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
+      </p>
+    </div>
+    <h3 class="p-4 rounded-2 mb-3 bg-primary bg-gradient border-0 text-white">Сколько у вас разновидностей чая?</h3>
+    <div class="pb-3 pt-3 pl-4 rounded-2 border-0">
+      <p>
+        У нас существует много видов чая
+      </p>
+    </div>
+    <h3 class="p-4 rounded-2 mb-3 bg-primary bg-gradient border-0 text-white">В какой срок осуществляется
+      доставка?</h3>
+    <div class="pb-3 pt-3 pl-4 rounded-2 border-0">
+      <p>
+        Доставка придет по Блеаруси в течение 3 дней. В другие страны в течение 1 недели
+      </p>
+    </div>
+    <h3 class="p-4 rounded-2 mb-3 bg-primary bg-gradient border-0 text-white">У вас обновляется ассортимент?</h3>
+    <div class="pb-3 pt-3 pl-4 rounded-2 border-0">
+      <p>
+        Да, каждый месяц нам привозят поставки с новыми видами чая
+      </p>
+    </div>
+    <h3 class="p-4 rounded-2 mb-3 bg-primary bg-gradient border-0 text-white">Какого объема у вас пачки чая?</h3>
+    <div class="pb-3 pt-3 pl-4 rounded-2 border-0">
+      <p>
+        Объем пачки 500г или же есть 1 кг
+      </p>
+    </div>
+  </div>
+  <!-- Модальное окно -->
+  <div class="modal show" *ngIf="isModalVisible" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <h5>Посмотрите наши чайные коллекции!</h5>
+        </div>
+        <div class="modal-footer">
+          <a type="button" class="btn btn-primary" [routerLink]="'products'">Смотреть</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
