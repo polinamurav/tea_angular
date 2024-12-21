@@ -1,45 +1,97 @@
-<div class="text-center fs-2 fw-bold mb-4" id="make-order">Сделать заказ</div>
+<div *ngIf="!isSuccess" class="text-center fs-2 fw-bold mb-4" id="make-order">Сделать заказ</div>
 <div class="position-relative row">
-  <form class="m-auto pb-5 col-12 col-lg-8 container-lg w-75 wow animate__bounceIn" id="form">
+  <form *ngIf="!isSuccess" class="m-auto pb-5 col-12 col-lg-8 container-lg w-75 wow animate__bounceIn"
+        [formGroup]="formValues">
     <!--        style="width: 636px"-->
+    <div class="form-group m-auto row col-12 mb-4">
+      <label class="mb-2">Товар</label>
+      <input type="text" class="form-control" name="title" formControlName="product" readonly>
+    </div>
+    <div class="form-group m-auto row col-12 mb-4">
+      <label class="mb-2">Комментарий к заказу</label>
+      <input type="text" class="form-control" formControlName="comment">
+    </div>
     <div class="form-row m-auto row col-12 mb-3">
       <div class="form-group col-md-4">
         <label class="mb-2">Имя</label>
-        <input type="text" class="form-control" id="inputName">
+        <input type="text" class="form-control" id="inputName" formControlName="name">
+        <div class="w-100"
+             *ngIf="formValues.get('name')?.invalid && (formValues.get('name')?.touched || formValues.get('name')?.dirty)">
+          <div class="invalid-feedback" *ngIf="formValues.get('name')?.errors?.['required']">
+            Необходимо ввести имя!
+          </div>
+          <div class="invalid-feedback" *ngIf="formValues.get('name')?.errors?.['pattern']">
+            Имя должно состоять только из букв
+          </div>
+        </div>
       </div>
       <div class="form-group col-md-4">
         <label class="mb-2">Фамилия</label>
-        <input type="text" class="form-control" id="inputSurname">
+        <input type="text" class="form-control" id="inputSurname" formControlName="last_name">
+        <div class="w-100"
+             *ngIf="formValues.get('last_name')?.invalid && (formValues.get('last_name')?.touched || formValues.get('last_name')?.dirty)">
+          <div class="invalid-feedback" *ngIf="formValues.get('last_name')?.errors?.['required']">
+            Необходимо ввести фамилию!
+          </div>
+          <div class="invalid-feedback" *ngIf="formValues.get('last_name')?.errors?.['pattern']">
+            Фамилия должно состоять только из букв
+          </div>
+        </div>
       </div>
       <div class="form-group col-md-4">
         <label class="mb-2">Телефон</label>
-        <input type="text" class="form-control" id="inputPhone">
+        <input type="number" class="form-control" id="inputPhone" formControlName="phone">
+        <div class="w-100"
+             *ngIf="formValues.get('phone')?.invalid && (formValues.get('phone')?.touched || formValues.get('phone')?.dirty)">
+          <div class="invalid-feedback" *ngIf="formValues.get('phone')?.errors?.['required']">
+            Необходимо ввести телефон!
+          </div>
+          <div class="invalid-feedback" *ngIf="formValues.get('phone')?.errors?.['pattern']">
+            Телефон должен состоять из 11 цифр
+          </div>
+        </div>
       </div>
     </div>
     <div class="form-row m-auto row col-12 row mb-3">
       <div class="form-group col-md-6">
         <label class="mb-2">Страна</label>
-        <input type="text" class="form-control" id="inputCity">
+        <input type="text" class="form-control" id="inputCity" formControlName="country">
+        <div class="invalid-feedback"
+             *ngIf="formValues.get('country')?.invalid && (formValues.get('country')?.touched || formValues.get('country')?.dirty)
+             && formValues.get('country')?.errors?.['required']">
+          Необходимо ввести страну!
+        </div>
       </div>
       <div class="form-group col-md-6">
         <label class="mb-2">Индекс</label>
-        <input type="text" class="form-control" id="inputIndex">
+        <input type="text" class="form-control" id="inputIndex" formControlName="zip">
+        <div class="invalid-feedback"
+             *ngIf="formValues.get('zip')?.invalid && (formValues.get('zip')?.touched || formValues.get('zip')?.dirty)
+             && formValues.get('zip')?.errors?.['required']">
+          Необходимо ввести индекс!
+        </div>
       </div>
     </div>
     <div class="form-group m-auto row col-12 mb-4">
       <label class="mb-2">Адрес</label>
-      <input type="text" class="form-control" id="inputAddress">
+      <input type="text" class="form-control" formControlName="address">
+      <div class="w-100"
+           *ngIf="formValues.get('address')?.invalid && (formValues.get('address')?.touched || formValues.get('address')?.dirty)">
+        <div class="invalid-feedback" *ngIf="formValues.get('address')?.errors?.['required']">
+          Необходимо ввести адрес!
+        </div>
+        <div class="invalid-feedback" *ngIf="formValues.get('address')?.errors?.['pattern']">
+          Адрес может состоять из букв, цифр, пробела, дефиса и слеша
+        </div>
+      </div>
     </div>
     <div class="form-group m-auto row col-md-4 col-12">
-      <button type="button" class="btn btn-primary m-auto row col-8 hvr-radial-out" id="order"
-      >Отправить
-        <!--                    style="width: 156px"-->
+      <button type="button" class="btn btn-primary m-auto row col-8 hvr-radial-out" (click)="createOrder()">Отправить
       </button>
-
+      <h5 *ngIf="isFail" class="text-danger text-center">Произошла ошибка. Попробуйте еще раз.</h5>
     </div>
   </form>
-  <div id="popup" class="border bg-success text-white p-2 text-center m-auto" style="width: 400px; height: 150px">
-    <p>Спасибо за заказ! Мы свяжемся с вами в ближайшее время!</p>
-    <button id="button-popup" type="button" class="btn btn-primary hvr-radial-out">Готово</button>
+  <div *ngIf="isSuccess" class="pt-5 pb-5">
+    <h1 class="text-center">Спасибо за заказ!</h1>
   </div>
 </div>

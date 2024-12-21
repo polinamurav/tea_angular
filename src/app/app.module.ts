@@ -12,6 +12,7 @@ import {RouterLinkActive, RouterLinkWithHref, RouterOutlet} from "@angular/route
 import { AppRoutingModule } from './app-routing.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ProductService} from "./services/product.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 let AuthInterceptor;
 
@@ -31,7 +32,9 @@ let AuthInterceptor;
     AppRoutingModule,
     HttpClientModule,
     RouterLinkWithHref,
-    RouterLinkActive
+    RouterLinkActive,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

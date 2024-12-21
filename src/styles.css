@@ -1,7 +1,10 @@
+app-root {
+  overflow-x: hidden;
+}
+
 .slick-dots {
   display: none;
 }
-
 
 .slick-prev:before {
   opacity: 1;
