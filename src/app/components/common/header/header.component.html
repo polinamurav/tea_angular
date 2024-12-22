@@ -19,10 +19,14 @@
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2 border border-secondary text-secondary" type="search"
-               placeholder="Поиск чая" aria-label="Search">
-        <button id="search-button" class="btn btn-outline-success text-primary border border-primary"
+               placeholder="Поиск чая" aria-label="Search" [(ngModel)]="searchQuery" name="search">
+        <a [routerLink]="'/products'" [queryParams]="{search: searchQuery}" class="btn btn-outline-success text-primary border border-primary"
                 type="submit"
                 style="width: 100px">Найти
+        </a>
+        <button *ngIf="searchQuery" (click)="resetSearch()" class="btn btn-outline-danger text-primary border border-primary"
+                type="button" style="width: 100px">
+          Сбросить
         </button>
       </form>
     </div>
