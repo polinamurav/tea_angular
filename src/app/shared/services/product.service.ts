@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {ProductType} from "../types/product.type";
-import {OrderType} from "../types/order.type";
-import {OrderComponent} from "../components/pages/order/order.component";
+import {ProductType} from "../../../types/product.type";
+import {OrderType} from "../../../types/order.type";
 
 @Injectable()
 export class ProductService {
